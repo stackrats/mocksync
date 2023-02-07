@@ -1,6 +1,6 @@
 {
   "name": "mocksync",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "MockSync calls your API endpoints and stores the JSON response files.",
   "main": "dist/index.js",
   "type": "module",
