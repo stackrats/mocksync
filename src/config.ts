@@ -1,16 +1,16 @@
 import fs from "fs"
 import path from "path"
 import axios from "axios"
-import chalk from "chalk"
+import clc from "cli-color"
 
 import { IConfig } from "./contracts/IConfig.js"
 
 const log = console.log
 
 const theme = {
-  success: chalk.green,
-  warning: chalk.yellow,
-  error: chalk.red,
+  success: clc.green,
+  warning: clc.yellow,
+  error: clc.red,
 }
 
 export const getConfig = (path: string) => {
@@ -19,7 +19,7 @@ export const getConfig = (path: string) => {
 
     return JSON.parse(content)
   } catch (err) {
-    console.log("Failed to read configuration file")
+    console.log(`${clc.red("Failed to read configuration file")}`)
 
     throw err
   }
@@ -29,7 +29,7 @@ export const callEndpoint = async (endpoint: string) => {
   try {
     return await axios.get(endpoint)
   } catch (err) {
-    log(theme.error(`Failed to connect to endpoint ${chalk.blue.bold(endpoint)}`))
+    log(theme.error(`Failed to connect to endpoint ${clc.blue.bold(endpoint)}`))
   }
 }
 
@@ -74,7 +74,7 @@ export const makeDir = (dir: string): void => {
 export const saveFile = (path: string, content: string): string => {
   try {
     fs.writeFile(path, content, (err) => {
-      log(theme.success(`Output ${chalk.blue.bold(path)}`))
+      log(theme.success(`Output ${clc.blue.bold(path)}`))
     })
   } catch (err) {
     throw err
