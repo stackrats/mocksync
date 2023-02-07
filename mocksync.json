@@ -1,0 +1,15 @@
+{
+  "outDir": "/mock-sync",
+  "endpoints": [
+    {
+      "url": "https://dummyjson.com/users?limit=3",
+      "dir": "users",
+      "fileName": "mock-users"
+    },
+    {
+      "url": "https://dummyjson.com/comments?limit=5",
+      "dir": "comments",
+      "fileName": "mock-comments"
+    }
+  ]
+}
